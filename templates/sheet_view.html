@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annopett Reviewer Workspace</title>
+    <link rel="icon" href="static/annopett.PNG" type="image/x-icon">
+    <link rel="stylesheet" href="static/styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff6600;
+            margin-top: 20px;
+        }
+
+        .sheet-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: flex;
+            gap: 20px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image Section */
+        .image-section {
+            flex: 1;
+            text-align: center;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .view-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ff6600;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 8px 12px;
+            border: 1px solid #ff6600;
+            border-radius: 6px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .view-link:hover {
+            background-color: #ff6600;
+            color: #fff;
+        }
+
+        /* Text Section */
+        .text-section {
+            flex: 2;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product Name Container */
+        .product-name-container {
+            background-color: white;
+            color: orangered;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Description Box and Text Areas */
+        .description-box {
+            margin-bottom: 20px;
+        }
+
+        .description-box h3 {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            resize: vertical;
+            margin-bottom: 20px;
+            min-width: 300px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .approve-button,
+        .reject-button {
+            flex: 1;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .approve-button {
+            background-color: orange;
+            color: white;
+        }
+
+        .approve-button:hover {
+            background-color: darkorange;
+            transform: scale(1.05);
+        }
+
+        .reject-button {
+            background-color: #333;
+            color: white;
+        }
+
+        .reject-button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sheet-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .text-section {
+                flex: 1;
+                padding: 15px;
+            }
+
+            textarea {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>ANNOPETT
+        <img src="static\annopett.PNG" alt="Logo" style="height: 50px; vertical-align: middle; margin-right: 10px;"></h1>
+    <div class="sheet-container">
+        <!-- Image Section -->
+        <div class="image-section">
+            <img src="{{ image_link or 'default_image.png' }}" alt="Product Image" class="product-image">
+            <br>
+            <a href="{{ product_url }}" target="_blank" class="view-link">View Product</a>
+        </div>
+
+        <!-- Text Section -->
+        <form method="POST" action="{{ url_for('sheet_view', row_number=row_number) }}">
+            <div class="text-section">
+                <!-- Product Name Container -->
+                <div class="product-name-container">
+                    <h2>{{ product_name }}</h2>
+                </div>
+
+                <!-- Short Caption Section -->
+                <label>
+                    <h3>Short Caption</h3>
+                    <h4>Word count: {{ short_desc_word_count }}</h4>
+                    <textarea name="short_desc" id="short_desc">{{ short_desc or '' }}</textarea>
+                </label>
+
+                <!-- Long Caption Section -->
+                <label>
+                    <h3>Long Caption</h3>
+                    <h4>Word count: {{ long_desc_word_count }}</h4>
+                    <textarea name="long_desc" id="long_desc">{{ long_desc or '' }}</textarea>
+                </label>
+
+                <!-- Comment Section -->
+                <label>
+                    <h3>Add comments (if Any)</h3>
+                    <textarea name="comment" id="comment" placeholder="Add your comment here...">{{ comment }}</textarea>
+                </label>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="submit" name="action" value="reject" class="reject-button">Reject</button>
+                    <button type="submit" name="action" value="approve" class="approve-button">Approve</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Light background */
+    color: #333; /* Dark gray text */
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #ff6600; /* Bright orange */
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ff6600; /* Orange color for subheadings */
+}
+
+/* Login Form Styles */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #fff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.1em;
+}
+
+.login-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.1em;
+    height: 100px; /* Adjust height for better visual appearance */
+}
+
+.login-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6600; /* Orange button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #cc5200; /* Darker orange on hover */
+}
+
+/* Sheet View Page */
+.sheet-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    background-color: #fff; /* White background for sheet view */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.sheet-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.image-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-image {
+    width: 650px; /* Increased image size */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-section {
+    flex: 1.5; /* Reduced width to make more room for image */
+    padding: 20px;
+}
+
+.text-section h1 {
+    font-size: 2em;
+    color: #ff6600;
+    margin-bottom: 20px;
+}
+
+.view-link {
+    font-size: 1.1em;
+    color: #ff6600;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Description Box Styling */
+.description-box {
+    background-color: #f9f9f9; /* Light gray background for descriptions */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    max-width: 80%; /* Reduced max-width of description box */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+textarea {
+    width: 100%;
+    height: 100px; /* Reduced height */
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.status-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Radio Buttons and Labels */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+button.next-button {
+    background-color: #ff6600; /* Orange button */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button.next-button:hover {
+    background-color: #cc5200;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .sheet-container {
+        flex-direction: column;
+    }
+
+    .image-section {
+        order: 2;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .text-section {
+        order: 1;
+        padding: 15px;
+    }
+
+    .product-image {
+        width: 320px; /* Adjust image size for mobile */
+    }
+}
